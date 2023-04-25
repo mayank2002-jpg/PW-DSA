@@ -1,5 +1,9 @@
 package Dsa.Arrays;
 
+
+// TC - O(n)
+// SC - O(1)
+
 public class DuplicateArray {
     public static void main(String[] args) {
         int[] arr = {1,4,5,3,5,5};
