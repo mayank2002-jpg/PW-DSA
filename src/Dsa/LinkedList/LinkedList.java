@@ -42,6 +42,17 @@ public class LinkedList {
         head = newNode;
     }
 
+    //Insert node after any node
+    public void insertAfter(Node prev_node, int newData) {
+        if (prev_node == null) {
+            System.out.println("The previous node cannot contain null values");
+            return;
+        }
+        Node newNode = new Node(newData);
+        newNode.next = prev_node.next;
+        prev_node.next = newNode;
+    }
+
 
     // display all the nodes after the insertion
     public void printNodes() {
@@ -57,12 +68,11 @@ public class LinkedList {
         LinkedList llist = new LinkedList();
 
         // Function calling
-        llist.insertAtEnd(2);
-        llist.insertAtEnd(4);
-        llist.insertAtEnd(8);
-        llist.insertAtEnd(10);
-        llist.insertAtEnd(15);
+        llist.insertAtBeginning(45);
         llist.insertAtBeginning(55);
+        llist.insertAtEnd(2);
+        llist.insertAtEnd(20);
+        llist.insertAfter(llist.head.next.next, 13);
         System.out.println("LinkedList After successful insertion of all nodes: ");
         llist.printNodes();
         System.out.println();
