@@ -32,8 +32,16 @@ public class LinkedList {
             temp = temp.next;
         }
         temp.next = newNode;
-        return;
+
     }
+
+    //Insert node at very beginning in the Linked List
+    public void insertAtBeginning(int newData) {
+        Node newNode = new Node(newData);
+        newNode.next = head;
+        head = newNode;
+    }
+
 
     // display all the nodes after the insertion
     public void printNodes() {
@@ -54,6 +62,7 @@ public class LinkedList {
         llist.insertAtEnd(8);
         llist.insertAtEnd(10);
         llist.insertAtEnd(15);
+        llist.insertAtBeginning(55);
         System.out.println("LinkedList After successful insertion of all nodes: ");
         llist.printNodes();
         System.out.println();
