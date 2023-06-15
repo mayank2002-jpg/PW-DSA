@@ -53,6 +53,28 @@ public class LinkedList {
         prev_node.next = newNode;
     }
 
+    //Implementation of deletion of nodes in the linked list
+    void deleteNode(int position) {
+        //LinkedList empty
+        if (head == null) {
+            return;
+        }
+        Node temp = head;
+        //Deletion from beginning
+        if (position == 0) {
+            head = temp.next;
+            return;
+        }
+        //Deletion from other position  apart from beginning
+        for (int i = 0; temp != null && i < position - 1; i++) {
+            temp = temp.next;
+        }
+        if (temp == null && temp.next == null) {
+            return;
+        }
+        temp.next = temp.next.next;
+    }
+
 
     // display all the nodes after the insertion
     public void printNodes() {
@@ -74,6 +96,10 @@ public class LinkedList {
         llist.insertAtEnd(20);
         llist.insertAfter(llist.head.next.next, 13);
         System.out.println("LinkedList After successful insertion of all nodes: ");
+        llist.printNodes();
+        System.out.println();
+        llist.deleteNode(2);
+        System.out.println("Linked List after deletion of node: ");
         llist.printNodes();
         System.out.println();
 
