@@ -114,6 +114,25 @@ public class LinkedList {
         System.out.println("The middle node of linked list is: " + slow.data);
     }
 
+    //Implementation of detection of cyclic Linked List
+    public void detectLoop() {
+        Node slow = head, fast = head;
+        int flag = 0;
+        while (slow != null && fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast) {
+                flag = 1;
+                break;
+            }
+        }
+        if (flag == 0) {
+            System.out.println("Loop not detected");
+        } else {
+            System.out.println("Loop is detected");
+        }
+    }
+
     // display all the nodes after the insertion
     public void printNodes() {
         Node current = head;
@@ -152,7 +171,16 @@ public class LinkedList {
 //        llist.printNodes();
 //        System.out.println();
 
-        llist.middleNode();
+//        llist.middleNode();
+//        System.out.println();
+
+        //Circular Linked List
+        Node temp = llist.head;
+        while (temp.next != null) {
+            temp = temp.next;
+        }
+        temp.next = llist.head;
+        llist.detectLoop();
         System.out.println();
     }
 }
