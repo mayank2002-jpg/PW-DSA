@@ -76,12 +76,12 @@ public class LinkedList {
     }
 
     //Implementation of reversal node of LinkedList(Iteratively)
-    public void reversal(){
+    public void reversal() {
         Node curr = head;
         Node prev = null;
         Node nextPtr = null;
 
-        while(curr!=null){
+        while (curr != null) {
             nextPtr = curr.next;
             curr.next = prev;
             prev = curr;
@@ -91,9 +91,9 @@ public class LinkedList {
         return;
     }
 
-//Implementation of reversal node of linked List(recursively)
-    public void reversalRec(Node curr, Node prev){
-        if(curr.next==null){
+    //Implementation of reversal node of linked List(recursively)
+    public void reversalRec(Node curr, Node prev) {
+        if (curr.next == null) {
             head = curr;
             curr.next = prev;
             return;
@@ -101,8 +101,19 @@ public class LinkedList {
         Node nextptr = curr.next;
         curr.next = prev;
         //recursive function call
-        reversalRec(nextptr,curr);
+        reversalRec(nextptr, curr);
     }
+
+    //Implementation of finding middle node of linked list
+    public void middleNode() {
+        Node slow = head, fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        System.out.println("The middle node of linked list is: " + slow.data);
+    }
+
     // display all the nodes after the insertion
     public void printNodes() {
         Node current = head;
@@ -136,9 +147,12 @@ public class LinkedList {
 //        System.out.println();
 
 
-        llist.reversalRec(llist.head, null);
-        System.out.println("Reversal of linked list using recursion: ");
-        llist.printNodes();
+//        llist.reversalRec(llist.head, null);
+//        System.out.println("Reversal of linked list using recursion: ");
+//        llist.printNodes();
+//        System.out.println();
+
+        llist.middleNode();
         System.out.println();
     }
 }
