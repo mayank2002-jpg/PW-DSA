@@ -75,6 +75,22 @@ public class LinkedList {
         temp.next = temp.next.next;
     }
 
+    //Implementation of reversal node of LinkedList(Iteratively)
+    public void reversal(){
+        Node curr = head;
+        Node prev = null;
+        Node nextPtr = null;
+
+        while(curr!=null){
+            nextPtr = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = nextPtr;
+        }
+        head = prev;
+        return;
+    }
+
 
     // display all the nodes after the insertion
     public void printNodes() {
@@ -98,8 +114,13 @@ public class LinkedList {
         System.out.println("LinkedList After successful insertion of all nodes: ");
         llist.printNodes();
         System.out.println();
-        llist.deleteNode(2);
-        System.out.println("Linked List after deletion of node: ");
+//        llist.deleteNode(2);
+//        System.out.println("Linked List after deletion of node: ");
+//        llist.printNodes();
+//        System.out.println();
+
+        llist.reversal();
+        System.out.println("Reversal in a Linked List: ");
         llist.printNodes();
         System.out.println();
 
