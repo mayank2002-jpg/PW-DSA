@@ -53,6 +53,7 @@ public class LinkedList {
         prev_node.next = newNode;
     }
 
+
     //Implementation of deletion of nodes in the linked list
     void deleteNode(int position) {
         //LinkedList empty
@@ -175,12 +176,12 @@ public class LinkedList {
 //        System.out.println();
 
         //Circular Linked List
-        Node temp = llist.head;
-        while (temp.next != null) {
-            temp = temp.next;
-        }
-        temp.next = llist.head;
-        llist.detectLoop();
-        System.out.println();
+//        Node temp = llist.head;
+//        while (temp.next != null) {
+//            temp = temp.next;
+//        }
+//        temp.next = llist.head;
+//        llist.detectLoop();
+//        System.out.println();
     }
 }
